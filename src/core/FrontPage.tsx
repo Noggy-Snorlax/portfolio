@@ -3,15 +3,33 @@ import { useState } from 'react';
 import banner from "../img/CoverPage.png";
 import "../css/front-page.css";
 import Button from '@mui/material/Button';
+import { useSelector, useDispatch } from 'react-redux';
+import { decrement, increment } from '../reducer/Counter'
 
-function FrontPage() {
+function Counter() {
+  const count = useSelector((state:any) => state.counter.value)
+  const dispatch = useDispatch()
 
   return (
-    <div  className="banner-img" style={{zIndex:1,position:"absolute",height:"100%",width:"100%",background:"black",top:"0px"}}>
-    <Header/>
-    <Button variant="contained">Contained</Button>
+    <div>
+      <div>
+        <button
+          aria-label="Increment value"
+          onClick={() => dispatch(increment())}
+        >
+          Increment
+        </button>
+        <span>{count}</span>
+        <button
+          aria-label="Decrement value"
+          onClick={() => dispatch(decrement())}
+        >
+          Decrement
+        </button>
+        <div style={{color:"white"}}>{count}</div>
+      </div>
     </div>
-  );
+  )
 }
 
 function Header() {
@@ -29,6 +47,17 @@ function Header() {
         </div>
         
         <img src={banner} alt="" style={{width:"100%"}}/>
+    </div>
+  );
+}
+
+function FrontPage() {
+
+  return (
+    <div  className="banner-img" style={{zIndex:1,position:"absolute",height:"100%",width:"100%",background:"black",top:"0px"}}>
+    <Header/>
+    <Counter/>
+    <Button variant="contained">Contained</Button>
     </div>
   );
 }
