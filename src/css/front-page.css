@@ -1,0 +1,15 @@
+{
+
+}
+@keyframes image_blur {
+    0% { -webkit-filter: blur(5px);}
+    100% { -webkit-filter: blur(0px);}
+}
+
+.banner-img {
+    /* background: url(images/test1.jpg); */
+}
+
+.banner-img {
+    animation: image_blur 5s; 
+}
