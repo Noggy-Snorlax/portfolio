@@ -1,22 +1,20 @@
 html, body {
   position: relative;
   height: 100%;
+  width: 100vw;
 }
 
 .App {
   /* text-align: center; */
+  height: 100%;
+  width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#root{
+  height: 100%;
+  width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
   background-color: #282c34;

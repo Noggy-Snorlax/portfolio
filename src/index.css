@@ -11,3 +11,51 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.parent-isDark .font-color{
+  color:white;
+  transition: 2s;
+}
+.parent-isLight .font-color{
+  color:black;
+  transition: 2s;
+}
+
+.font-30px{
+  font-size: 1.56vw;
+}
+
+.font-25px{
+  font-size: 1.302vw;
+}
+.font-20px{
+  font-size: 1.04vw;
+}
+.font-15px{
+  font-size: 0.78vw;
+}
+.font-bold{
+  font-weight: bolder;
+
+}
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}

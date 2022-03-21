@@ -7,12 +7,13 @@ import phoneIcon from "../img/phone-rotation-icon.png"
 import FrontPage from './FrontPage';
 
 function Rotation() {
-    const [isDisplay, setIsDisplay] = useState(window.innerWidth < window.innerHeight?false:true);
+    const [isDisplay, setIsDisplay] = useState(window.innerWidth < window.innerHeight?true:false);
+   
     window.addEventListener('resize', () => {
         if (window.innerWidth < window.innerHeight) {
-            setIsDisplay(false);
-        } else {
             setIsDisplay(true);
+        } else {
+            setIsDisplay(false);
         }
     });
 
