@@ -48,5 +48,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint-plugin-react-css-module-hints": "^1.0.1",
+    "typescript-plugin-css-modules": "^3.4.0"
   }
 }

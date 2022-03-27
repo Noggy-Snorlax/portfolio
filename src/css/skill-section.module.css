@@ -1,0 +1,15 @@
+.bar-table{
+    height: 50%;
+    width: 100%;
+    background-image: linear-gradient(to right,#796969, #5a0707);
+    border-top-right-radius: 1vw;
+    border-bottom-right-radius: 1vw;
+  }
+  @keyframes increaseBar2 {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 100%;
+    }
+  }

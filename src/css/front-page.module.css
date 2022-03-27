@@ -1,13 +1,33 @@
-{
 
+
+.App-link {
+  color: #61dafb;
 }
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
 @keyframes image_blur {
     0% { -webkit-filter: blur(5px);}
     100% { -webkit-filter: blur(0px);}
 }
 
-.banner-img {
-    animation: image_blur 5s; 
+.bannerImg {
+    animation: image_blur 5s;
+    z-index: 1;
+    position: relative;
+    height: 100%;
+    width: 80%;
+    top: 0px;
+    overflow: auto;
+    overflow-x: hidden;
 }
 .parent-isLight{
     background-color: #c6dde1;
@@ -41,7 +61,7 @@
     }
   }
   
-  .react-icon-div{
+  .aboutMe{
     width:10vw;
     height:10vw;
     border-radius:1vw;
@@ -53,12 +73,12 @@
     transition: 2s;
   }
 
-.parent-isDark .react-icon-div{
+.parent-isDark .aboutMe{
     background-color: #1f2e66;
     box-shadow: 0.68vw 0.68vw 1.04vw #0f1f2f, -0.68vw -0.68vw 1.04vw #326cb2
 }
 
-.parent-isLight .react-icon-div{ 
+.parent-isLight .aboutMe{ 
     /* border:solid 0.204vw black; */
     background-color: #d7f8fe;
     box-shadow: 0.68vw 0.68vw 1.04vw #bedeff, -0.68vw -0.68vw 1.04vw #c1f5ff;
@@ -75,11 +95,23 @@
 
 
 
-.bar-test{
+.parent-isDark .bar-test{
     width: 30%;
     height: 1vw;
-    /* background-image: linear-gradient(to right,#c4ebc7, #27942c); */
-    background-image: linear-gradient(to right,#09460c, #82e987);
+    background-image: linear-gradient(to right,#000000, #ffffff);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    filter: grayscale(100%);
+  }
+
+  .parent-isLight .bar-test{
+    width: 30%;
+    height: 1vw;
+    background-image: linear-gradient(to right,#415574, #0084ff);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
   }
 
   .incrase-bar {
@@ -96,6 +128,50 @@
       width: 0%;
     }
     100% {
-      width: 100%;
+      width: 110%;
     }
   }
+
+  .reactIconDiv{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    width: 5vw;
+    height: 5vw;
+    position: absolute;
+    z-index: 2;
+    right: 16.3%;
+    top: 11%;
+
+  }
+
+
+  .parent-isDark .font-color{
+    color:white;
+    transition: 2s;
+  }
+  .parent-isLight .font-color{
+    color:black;
+    transition: 2s;
+  }
+  
+  .font-30px{
+    font-size: 1.56vw;
+  }
+  
+  .font-25px{
+    font-size: 1.302vw;
+  }
+  .font-20px{
+    font-size: 1.04vw;
+  }
+  .font-15px{
+    font-size: 0.78vw;
+  }
+  .font-bold{
+    font-weight: bolder;
+  
+  }
+  
+
+  
