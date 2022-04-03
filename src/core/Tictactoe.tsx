@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import FPCSS from '../css/front-page.module.css';
-import { changeValueOfBox } from '../reducer/TicTacToeRed';
+import { changeValueOfBox, resetTicTacToe } from '../reducer/TicTacToeRed';
 
 function Tictactoe() {
     const r1c1 = useSelector((state: any) => state.tactactoe.r1c1);
@@ -32,6 +32,10 @@ function Tictactoe() {
             return 1;
         }else if(r1c3===1 && r2c3===1 && r3c3===1){
             return 1;
+        }else if(r1c1===1 && r2c2===1 && r3c3===1){
+            return 1;
+        }else if(r1c3===1 && r2c2===1 && r3c1===1){
+            return 1;
         }
 
         else if(r1c1===2 && r1c2===2 && r1c3===2){
@@ -46,6 +50,14 @@ function Tictactoe() {
             return 2;
         }else if(r1c3===2 && r2c3===2 && r3c3===2){
             return 2;
+        }else if(r1c1===2 && r2c2===2 && r3c3===2){
+            return 2;
+        }else if(r1c3===2 && r2c2===2 && r3c1===2){
+            return 2;
+        }else if(r1c1>0 && r1c2>0 && r1c3>0 
+            && r1c1>0 && r1c1>0 && r1c1>0
+            && r1c1>0 && r1c1>0 && r1c1>0){
+            return 3;
         }
         
      
@@ -86,13 +98,11 @@ function Tictactoe() {
                         {CrossCircle(r3c2, 7)}
                         {CrossCircle(r3c3, 8)}
                     </div>
-
-
                 </div>
-
             </div>
             <div>
-               {TicTacToeResult()===1?"X win":TicTacToeResult()===2?"O win":""} 
+               {TicTacToeResult()===1?"X win":TicTacToeResult()===2?"O win":TicTacToeResult()===3?"Draw":""} 
+               <button onClick={()=>dispatch(resetTicTacToe())}>Reset</button>
             </div>
         </div>
 
