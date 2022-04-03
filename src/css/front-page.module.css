@@ -1,5 +1,4 @@
 
-
 .App-link {
   color: #61dafb;
 }
@@ -19,6 +18,14 @@
     100% { -webkit-filter: blur(0px);}
 }
 
+.pageHeaderTextDiv{
+  position: absolute;
+  left: 10%;
+  top: 20%;
+  z-index: 1;
+}
+
+
 .bannerImg {
     animation: image_blur 5s;
     z-index: 1;
@@ -29,6 +36,7 @@
     overflow: auto;
     overflow-x: hidden;
 }
+
 .parent-isLight{
     background-color: #c6dde1;
     transition: 2s;
@@ -61,28 +69,50 @@
     }
   }
   
-  .aboutMe{
-    width:10vw;
-    height:10vw;
-    border-radius:1vw;
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    -webkit-filter: blur(0.4px);
-    transition: 2s;
+  .aboutMeTitleText{
+    height: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
   }
 
-.parent-isDark .aboutMe{
+  .aboutMeImg1{
+    width: 20%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+  }
+
+.parent-isDark .aboutMeImg1{
     background-color: #1f2e66;
     box-shadow: 0.68vw 0.68vw 1.04vw #0f1f2f, -0.68vw -0.68vw 1.04vw #326cb2
 }
 
-.parent-isLight .aboutMe{ 
-    /* border:solid 0.204vw black; */
+.parent-isLight .aboutMeImg1{ 
     background-color: #d7f8fe;
     box-shadow: 0.68vw 0.68vw 1.04vw #bedeff, -0.68vw -0.68vw 1.04vw #c1f5ff;
 }
+
+.slideInRightAnimation {
+  animation: 2s ease-out 0s 1 slideInRightAnimation forwards;
+}
+
+.aboutMeImg1TextDiv{
+  width: 90%;
+}
+
+@keyframes slideInRightAnimation {
+  0% {
+    opacity: 0;
+    transform: translate(1vw,0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0vw,0);
+  }
+}
+
 
 .parent-isDark .theme-icon-div svg{
     color:white;
@@ -175,3 +205,172 @@
   
 
   
+/*Skill Section*/
+
+@import "skill-section.module.css";
+
+.skillTitle{
+    height: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.skillSectionBox{
+    width: 100%;
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+}
+
+.skillSectionBoxDiv{
+    height: 32vw;
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+}
+
+.skillSectionLayer3{
+    width: 94%;
+    border-radius: 0.5vw; 
+    overflow: hidden; 
+    
+}
+
+.parent-isDark .skillSectionLayer3{
+  box-shadow: 0.68vw 0.68vw 1.04vw #13191b, -0.68vw -0.68vw 1.04vw #22264a;
+}
+.parent-isLight .skillSectionLayer3{
+  box-shadow: 0.68vw 0.68vw 1.04vw #c1c1c1, -0.68vw -0.68vw 1.04vw #e9fbff;
+}
+
+.skillSectionBoxTitle{
+    padding: 1%;
+    transition: 2s;
+}
+
+.parent-isDark .skillSectionBoxTitle{
+  background-image: linear-gradient(to right,#3e598d, #4b6374);
+}
+.parent-isLight .skillSectionBoxTitle{
+  background-image: linear-gradient(to right,#acf7ff, #96bad3);
+}
+
+.skillSectionBarDiv{
+    padding: 1%;
+    
+    height: 20vw;
+    max-height: 20vw;
+    display: flex;
+}
+
+.parent-isDark .skillSectionBarDiv{
+  background-color: #1d1d1d;
+}
+.parent-isLight .skillSectionBarDiv{
+  background-color: #f9f9f9;
+}
+.skillSection_X_Lable_Div{
+    width: 10%;
+    height: 100%;
+    max-height: 100%;
+}
+
+.skillSection_Y_Lable_Div{
+    padding: 1%;
+    height: 2vw;
+    max-height: 20vw;
+    display: flex;
+    padding-top: 0%;
+    transition: 2s;
+}
+
+.parent-isDark .skillSection_Y_Lable_Div{
+  background-color: #1d1d1d;
+}
+.parent-isLight .skillSection_Y_Lable_Div{
+  background-color: #f9f9f9;
+}
+
+.skillSection_X_Lable_Text{
+    height: 14.28%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 1em;
+}
+
+.skillSection_X_Value{
+    height: 14.28%;
+    display: flex;
+    align-items: center;
+}
+
+.bar-table{
+    height: 50%;
+    width: 100%;
+    background-image: linear-gradient(to right,#a7ecba, #5a5a5a);
+    border-top-right-radius: 1vw;
+    border-bottom-right-radius: 1vw;
+  }
+  .incrase-bar2 {
+    animation: 3s ease-out 0s 1 increaseBar2 forwards;
+  }
+ 
+
+  @keyframes increaseBar2 {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+
+  /*skill section*/
+
+  /*tic tac toe*/
+  .tictactocContainer{
+    width:25%;
+    padding-bottom: 25%;
+    background-color: white;
+    position: relative;
+
+  }
+  .tictactocBigSquare{
+    position:absolute;
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+   
+  }
+  .tictactocRow{
+    width:100%;
+    height:33.3%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  .tictactocSmallSquare{
+    width:calc(1 / 3 * 100%);
+    height:100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:inset 0 0 1px #000000,0 0 1px #000000,0 0 1px #000000;
+  }
+  
+  .tictactocCrossCircle{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+/*tic tac toe*/
