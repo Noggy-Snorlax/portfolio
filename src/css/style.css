@@ -1,0 +1,38 @@
+.mySwiper .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    background-color: black;
+  }
+  
+  .mySwiper .swiper-slide img {
+    display: block;
+    width: 100%;
+  }
+
+  .mySwiper{
+      height: 100%;
+  }
+  
+
+  .mySwiper2 .swiper {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -150px;
+    margin-top: -150px;
+  }
+  
+  .mySwiper2 .swiper-slide {
+    background-position: center;
+    background-size: cover;
+  }
+  
+  .mySwiper2 .swiper-slide img {
+    display: block;
+    width: 100%;
+  }
+  

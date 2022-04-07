@@ -55,6 +55,23 @@
     transition: 2s;
 }
 
+.drawerContainer{
+  width: 20%;
+  height: 100%;
+  background-color: whitesmoke; 
+  transition: 2s;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.parent-isLight .drawerContainer{
+  background-color: #e5fbff; 
+}
+.parent-isDark .drawerContainer{
+  background-color: rgb(36 52 61); 
+}
+
 .App-logo {
     height: 150%;
     width: 150%;
@@ -76,12 +93,13 @@
     align-items: center; 
   }
 
-  .aboutMeImg1{
+  .aboutMeImg1, .aboutMeImg2{
     width: 20%;
     height: auto;
     display: flex;
     align-items: center;
     justify-content: center; 
+    transition: 2s;
   }
 
 .parent-isDark .aboutMeImg1{
@@ -92,6 +110,16 @@
 .parent-isLight .aboutMeImg1{ 
     background-color: #d7f8fe;
     box-shadow: 0.68vw 0.68vw 1.04vw #bedeff, -0.68vw -0.68vw 1.04vw #c1f5ff;
+}
+
+.parent-isDark .aboutMeImg2{
+  background-color: #1f2e66;
+  box-shadow: 0.68vw 0.68vw 1.04vw #2f2d0f, -0.68vw -0.68vw 1.04vw #2d2d2d
+}
+
+.parent-isLight .aboutMeImg2{ 
+  background-color: #d7f8fe;
+  box-shadow: 0.68vw 0.68vw 1.04vw #c3c3c3, -0.68vw -0.68vw 1.04vw #ecefe2;
 }
 
 .slideInRightAnimation {
@@ -142,6 +170,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    box-shadow: 0px 0px 3px 1px #097eed;
   }
 
   .incrase-bar {
@@ -260,9 +289,8 @@
 
 .skillSectionBarDiv{
     padding: 1%;
-    
-    height: 20vw;
-    max-height: 20vw;
+    height: 25vw;
+    max-height: 25vw;
     display: flex;
 }
 
@@ -273,7 +301,7 @@
   background-color: #f9f9f9;
 }
 .skillSection_X_Lable_Div{
-    width: 10%;
+    width: 15%;
     height: 100%;
     max-height: 100%;
 }
@@ -295,7 +323,8 @@
 }
 
 .skillSection_X_Lable_Text{
-    height: 14.28%;
+    height: 7.692%;
+    max-height: 100%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -303,7 +332,8 @@
 }
 
 .skillSection_X_Value{
-    height: 14.28%;
+    height: 7.692%;
+    max-height: 100%;
     display: flex;
     align-items: center;
 }

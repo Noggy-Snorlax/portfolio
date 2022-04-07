@@ -19,6 +19,19 @@ import logo from '.././logo.svg';
 import { ReactComponent as ReactLogo } from '.././logo.svg';
 import { openCloseDialog, changeImageURL } from '../reducer/ExpandDialog';
 import Tictactoe from './Tictactoe';
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
+import '../css/style.css';
+import "swiper/css/effect-cube";
+import "swiper/css/pagination";
+// import required modules
+import { FreeMode, Navigation, Thumbs } from "swiper";
+import { EffectFade, Pagination, EffectCube } from "swiper";
 
 function Counter() {
   const count = useSelector((state: any) => state.counter.value)
@@ -66,8 +79,8 @@ function Header() {
 
   return (
 
-    <div style={{ position: "relative", height: "auto", width: "100%", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
-      <div className={FPCSS.pageHeaderTextDiv} style={{  }}>
+    <div id="section1" style={{ position: "relative", height: "auto", width: "100%", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <div className={FPCSS.pageHeaderTextDiv} style={{}}>
         <div className={FPCSS['font-25px'] + " " + FPCSS['font-bold'] + " " + FPCSS['font-color']}>
           Welcome~
         </div>
@@ -77,6 +90,15 @@ function Header() {
         <div className={FPCSS['font-25px'] + " " + FPCSS['font-bold'] + " " + FPCSS['font-color']} style={{ width: "auto", height: "auto", paddingTop: "1em", paddingBottom: "1em" }}>
           <div>
             This Page Is Created Using React Redux Framework.
+          
+          </div>
+          <div>
+           *There is light and dark theme
+          
+          </div>
+          <div>
+            *The image can be click on the about me section
+          
           </div>
         </div>
 
@@ -95,9 +117,34 @@ function Header() {
 }
 
 function NavigationDrawer() {
+  useEffect(() => {
+
+
+  });
+
   return (
-    <div style={{ width: "20%", height: "100%", backgroundColor: "whitesmoke" }}>
-      asd
+    <div className={FPCSS.drawerContainer} >
+      <div style={{ display: "flex", flexDirection: "column", height: "50%", justifyContent: "space-around" }}>
+        <div className={FPCSS['font-25px'] + " " + FPCSS['font-bold'] + " " + FPCSS['font-color']} onClick={() => { var element = document.getElementById("section1")!; element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" }); }}>
+          Back To Top
+        </div>
+        <div className={FPCSS['font-25px'] + " " + FPCSS['font-bold'] + " " + FPCSS['font-color']} onClick={() => { var element = document.getElementById("section2")!; element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" }); }}>
+          About Me
+        </div>
+        <div className={FPCSS['font-25px'] + " " + FPCSS['font-bold'] + " " + FPCSS['font-color']} onClick={() => { var element = document.getElementById("section3")!; element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" }); }}>
+          Skill
+        </div>
+        <div className={FPCSS['font-25px'] + " " + FPCSS['font-bold'] + " " + FPCSS['font-color']} onClick={() => { var element = document.getElementById("section6")!; element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" }); }}>
+          Tic Tac Toe
+        </div>
+        <div className={FPCSS['font-25px'] + " " + FPCSS['font-bold'] + " " + FPCSS['font-color']} onClick={() => { var element = document.getElementById("section4")!; element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" }); }}>
+          Art Gallary
+        </div>
+        <div className={FPCSS['font-25px'] + " " + FPCSS['font-bold'] + " " + FPCSS['font-color']} onClick={() => { var element = document.getElementById("section5")!; element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" }); }}>
+          Contact Me
+        </div>
+      </div>
+
     </div>
   )
 }
@@ -150,19 +197,19 @@ function AboutMe() {
     };
     const observer3: any = new IntersectionObserver(startAnimation3);
     const options3 = { root: null, rootMargin: '0px', threshold: 1 };
-    const elements3 = document.querySelectorAll('.' + FPCSS.aboutMeImg1+', .'+FPCSS.aboutMeImg1TextDiv+', .'+FPCSS.aboutMeTitleText);
+    const elements3 = document.querySelectorAll('.' + FPCSS.aboutMeImg1 + ', .' + FPCSS.aboutMeImg1TextDiv + ', .' + FPCSS.aboutMeTitleText);
     elements3.forEach(el => {
       observer3.observe(el, options3);
     });
   });
 
-  
+
 
 
 
   return (
-    <div style={{ height: "30vw" }}>
-      <div className={FPCSS.aboutMeTitleText+" "+ FPCSS['font-30px'] + " " + FPCSS['font-bold'] + " " + FPCSS['font-color']}>
+    <div id="section2" style={{ height: "42vw" }}>
+      <div className={FPCSS.aboutMeTitleText + " " + FPCSS['font-30px'] + " " + FPCSS['font-bold'] + " " + FPCSS['font-color']}>
         About Me
       </div>
       <div className={"font-30px font-bold font-color"} style={{ display: "flex", padding: "1vw" }}>
@@ -179,13 +226,40 @@ function AboutMe() {
               <div>
                 Currently have an 1 and 1/2 year of working experience as a front-end web developer and 6 month of internship QA experience.
               </div>
-
             </div>
-
-            <Button variant='contained'>Contact Me</Button>
           </div>
         </div>
 
+      </div>
+      <div className={"font-30px font-bold font-color"} style={{ display: "flex", padding: "1vw" }}>
+
+        <div className={FPCSS['font-20px'] + " " + FPCSS['font-bold'] + " " + FPCSS['font-color']} style={{ width: "80%", display: "flex", justifyContent: "center", alignItems: "center" }}>
+          <div className={FPCSS.aboutMeImg1TextDiv}>
+            <div>
+              <div>
+                <div>Hobbies :</div>
+                <div>- Playing/making games.</div>
+                <div>- Thinking complex logic.</div>
+                <div>- Exercising to keep a healthy lift style 😊.</div>
+                <div>- Will try and hack or exploit some website once in awhile.</div>
+              </div>
+              <div>
+                <div style={{ paddingTop: "1em" }}> Special about me :</div>
+                <div>- Join ROTU during University. Yup, I am an army officer.🗡️</div>
+                <div>- Representative for my University to join programming competition(ICPC).💻</div>
+              </div>
+
+            </div>
+            <div style={{ paddingTop: "1em" }}>
+              <Button variant='contained' onClick={() => { var element = document.getElementById("section5")!; element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" }); }}>Contact Me</Button>
+            </div>
+
+          </div>
+        </div>
+        <div className={FPCSS.aboutMeImg2} style={{}}>
+          <img onClick={() => { dispatch(openCloseDialog()); dispatch(changeImageURL('https://drive.google.com/uc?export=view&id=1ArSBU-NnnunC-js1szu2vEQMjDeRg9mX')) }} src='https://drive.google.com/uc?export=view&id=1ArSBU-NnnunC-js1szu2vEQMjDeRg9mX' alt="" style={{ width: "100%", height: "auto" }} />
+
+        </div>
       </div>
     </div>
 
@@ -213,82 +287,119 @@ function SkillSection() {
 
 
   return (
-    <div>
-      <div className={FPCSS.skillTitle+" "+FPCSS['font-30px'] + " " + FPCSS['font-bold'] + " " + FPCSS['font-color']} style={{  }}>
+    <div id="section3">
+      <div className={FPCSS.skillTitle + " " + FPCSS['font-30px'] + " " + FPCSS['font-bold'] + " " + FPCSS['font-color']} style={{}}>
         Skill
       </div>
       <div className={FPCSS['font-30px'] + " " + FPCSS['font-bold'] + " " + FPCSS['font-color']} style={{ display: "flex", padding: "1vw" }}>
 
-        <div className={FPCSS.skillSectionBox+" "+FPCSS['font-20px'] + " " + FPCSS['font-bold'] + " " + FPCSS['font-color']} style={{ }}>
+        <div className={FPCSS.skillSectionBox + " " + FPCSS['font-20px'] + " " + FPCSS['font-bold'] + " " + FPCSS['font-color']} style={{}}>
           <div className={FPCSS.skillSectionBoxDiv}>
             <div className={FPCSS.skillSectionLayer3}>
-              <div className={FPCSS.skillSectionBoxTitle+" "+FPCSS['font-25px'] + " " + FPCSS['font-bold'] + " " + FPCSS['font-color']}>
+              <div className={FPCSS.skillSectionBoxTitle + " " + FPCSS['font-25px'] + " " + FPCSS['font-bold'] + " " + FPCSS['font-color']}>
                 Skill Rating
               </div>
-              <div className={FPCSS.skillSectionBarDiv+" "+FPCSS['font-20px']+ " " + FPCSS['font-color']} >
-                <div className={FPCSS.skillSection_X_Lable_Div} style={{ }}>
-                  <div className={FPCSS.skillSection_X_Lable_Text+" "+FPCSS['font-20px']+ " " + FPCSS['font-color']}>
+              <div className={FPCSS.skillSectionBarDiv + " " + FPCSS['font-20px'] + " " + FPCSS['font-color']} >
+                <div className={FPCSS.skillSection_X_Lable_Div} style={{}}>
+                  <div className={FPCSS.skillSection_X_Lable_Text + " " + FPCSS['font-20px'] + " " + FPCSS['font-color']}>
                     html</div>
-                  <div className={FPCSS.skillSection_X_Lable_Text+" "+FPCSS['font-20px']+ " " + FPCSS['font-color']}>
+                  <div className={FPCSS.skillSection_X_Lable_Text + " " + FPCSS['font-20px'] + " " + FPCSS['font-color']}>
                     php</div>
-                  <div className={FPCSS.skillSection_X_Lable_Text+" "+FPCSS['font-20px']+ " " + FPCSS['font-color']}>
+                  <div className={FPCSS.skillSection_X_Lable_Text + " " + FPCSS['font-20px'] + " " + FPCSS['font-color']}>
                     JavaScript</div>
-                  <div className={FPCSS.skillSection_X_Lable_Text+" "+FPCSS['font-20px']+ " " + FPCSS['font-color']}>
+                  <div className={FPCSS.skillSection_X_Lable_Text + " " + FPCSS['font-20px'] + " " + FPCSS['font-color']}>
                     TypeScript</div>
-                  <div className={FPCSS.skillSection_X_Lable_Text+" "+FPCSS['font-20px']+ " " + FPCSS['font-color']}>
+                  <div className={FPCSS.skillSection_X_Lable_Text + " " + FPCSS['font-20px'] + " " + FPCSS['font-color']}>
                     C#</div>
-                  <div className={FPCSS.skillSection_X_Lable_Text+" "+FPCSS['font-20px']+ " " + FPCSS['font-color']}>
+                  <div className={FPCSS.skillSection_X_Lable_Text + " " + FPCSS['font-20px'] + " " + FPCSS['font-color']}>
                     Java</div>
-                  <div className={FPCSS.skillSection_X_Lable_Text+" "+FPCSS['font-20px']+ " " + FPCSS['font-color']}>
+                  <div className={FPCSS.skillSection_X_Lable_Text + " " + FPCSS['font-20px'] + " " + FPCSS['font-color']}>
                     SQL</div>
-                  </div>
+                  <div className={FPCSS.skillSection_X_Lable_Text + " " + FPCSS['font-20px'] + " " + FPCSS['font-color']}>
+                    Android Studio</div>
+                  <div className={FPCSS.skillSection_X_Lable_Text + " " + FPCSS['font-20px'] + " " + FPCSS['font-color']}>
+                    Firebase</div>
+                  <div className={FPCSS.skillSection_X_Lable_Text + " " + FPCSS['font-20px'] + " " + FPCSS['font-color']}>
+                    Unity</div>
+                  <div className={FPCSS.skillSection_X_Lable_Text + " " + FPCSS['font-20px'] + " " + FPCSS['font-color']}>
+                    Blender</div>
+                  <div className={FPCSS.skillSection_X_Lable_Text + " " + FPCSS['font-20px'] + " " + FPCSS['font-color']}>
+                    Photoshop</div>
+                  <div className={FPCSS.skillSection_X_Lable_Text + " " + FPCSS['font-20px'] + " " + FPCSS['font-color']}>
+                    Frigma</div>
+                </div>
+
                 <div style={{ width: "95%", borderLeft: "solid 1px black", borderBottom: "solid 1px black" }}>
-                  <div className={FPCSS.skillSection_X_Value+" "+FPCSS['font-20px']+ " " + FPCSS['font-color']} style={{width: "93%" }}>
+                  <div className={FPCSS.skillSection_X_Value + " " + FPCSS['font-20px'] + " " + FPCSS['font-color']} style={{ width: "93%" }}>
                     <div className={FPCSS['bar-table']}>
                     </div>
                   </div>
-                  <div className={FPCSS.skillSection_X_Value+" "+FPCSS['font-20px']+ " " + FPCSS['font-color']} style={{width: "75%"}}>
+                  <div className={FPCSS.skillSection_X_Value + " " + FPCSS['font-20px'] + " " + FPCSS['font-color']} style={{ width: "75%" }}>
                     <div className={FPCSS['bar-table']}>
                     </div>
                   </div>
-                  <div className={FPCSS.skillSection_X_Value+" "+FPCSS['font-20px']+ " " + FPCSS['font-color']} style={{width: "80%"}}>
+                  <div className={FPCSS.skillSection_X_Value + " " + FPCSS['font-20px'] + " " + FPCSS['font-color']} style={{ width: "80%" }}>
                     <div className={FPCSS['bar-table']}>
                     </div>
                   </div>
-                  <div className={FPCSS.skillSection_X_Value+" "+FPCSS['font-20px']+ " " + FPCSS['font-color']} style={{width: "80%"}}>
+                  <div className={FPCSS.skillSection_X_Value + " " + FPCSS['font-20px'] + " " + FPCSS['font-color']} style={{ width: "80%" }}>
                     <div className={FPCSS['bar-table']}>
                     </div>
                   </div>
-                  <div className={FPCSS.skillSection_X_Value+" "+FPCSS['font-20px']+ " " + FPCSS['font-color']} style={{width: "75%"}}>
+                  <div className={FPCSS.skillSection_X_Value + " " + FPCSS['font-20px'] + " " + FPCSS['font-color']} style={{ width: "75%" }}>
                     <div className={FPCSS['bar-table']}>
                     </div>
                   </div>
-                  <div className={FPCSS.skillSection_X_Value+" "+FPCSS['font-20px']+ " " + FPCSS['font-color']} style={{width: "70%"}}>
+                  <div className={FPCSS.skillSection_X_Value + " " + FPCSS['font-20px'] + " " + FPCSS['font-color']} style={{ width: "70%" }}>
                     <div className={FPCSS['bar-table']}>
                     </div>
                   </div>
-                  <div className={FPCSS.skillSection_X_Value+" "+FPCSS['font-20px']+ " " + FPCSS['font-color']} style={{width: "40%"}}>
+                  <div className={FPCSS.skillSection_X_Value + " " + FPCSS['font-20px'] + " " + FPCSS['font-color']} style={{ width: "40%" }}>
+                    <div className={FPCSS['bar-table']}>
+                    </div>
+                  </div>
+                  <div className={FPCSS.skillSection_X_Value + " " + FPCSS['font-20px'] + " " + FPCSS['font-color']} style={{ width: "60%" }}>
+                    <div className={FPCSS['bar-table']}>
+                    </div>
+                  </div>
+                  <div className={FPCSS.skillSection_X_Value + " " + FPCSS['font-20px'] + " " + FPCSS['font-color']} style={{ width: "60%" }}>
+                    <div className={FPCSS['bar-table']}>
+                    </div>
+                  </div>
+                  <div className={FPCSS.skillSection_X_Value + " " + FPCSS['font-20px'] + " " + FPCSS['font-color']} style={{ width: "80%" }}>
+                    <div className={FPCSS['bar-table']}>
+                    </div>
+                  </div>
+                  <div className={FPCSS.skillSection_X_Value + " " + FPCSS['font-20px'] + " " + FPCSS['font-color']} style={{ width: "40%" }}>
+                    <div className={FPCSS['bar-table']}>
+                    </div>
+                  </div>
+                  <div className={FPCSS.skillSection_X_Value + " " + FPCSS['font-20px'] + " " + FPCSS['font-color']} style={{ width: "50%" }}>
+                    <div className={FPCSS['bar-table']}>
+                    </div>
+                  </div>
+                  <div className={FPCSS.skillSection_X_Value + " " + FPCSS['font-20px'] + " " + FPCSS['font-color']} style={{ width: "30%" }}>
                     <div className={FPCSS['bar-table']}>
                     </div>
                   </div>
                 </div>
 
               </div>
-              <div className={FPCSS.skillSection_Y_Lable_Div+" "+FPCSS['font-20px']}>
+              <div className={FPCSS.skillSection_Y_Lable_Div + " " + FPCSS['font-20px']}>
                 <div style={{ width: "10%", height: "100%", maxHeight: "100%" }}>
 
                 </div>
                 <div style={{ width: "95%", display: "flex", justifyContent: "space-evenly" }}>
-                  <div className={FPCSS['font-20px']+ " " + FPCSS['font-color']}>10%</div>
-                  <div className={FPCSS['font-20px']+ " " + FPCSS['font-color']}>20%</div>
-                  <div className={FPCSS['font-20px']+ " " + FPCSS['font-color']}>30%</div>
-                  <div className={FPCSS['font-20px']+ " " + FPCSS['font-color']}>40%</div>
-                  <div className={FPCSS['font-20px']+ " " + FPCSS['font-color']}>50%</div>
-                  <div className={FPCSS['font-20px']+ " " + FPCSS['font-color']}>60%</div>
-                  <div className={FPCSS['font-20px']+ " " + FPCSS['font-color']}>70%</div>
-                  <div className={FPCSS['font-20px']+ " " + FPCSS['font-color']}>80%</div>
-                  <div className={FPCSS['font-20px']+ " " + FPCSS['font-color']}>90%</div>
-                  <div className={FPCSS['font-20px']+ " " + FPCSS['font-color']}>100%</div>
+                  <div className={FPCSS['font-20px'] + " " + FPCSS['font-color']}>10%</div>
+                  <div className={FPCSS['font-20px'] + " " + FPCSS['font-color']}>20%</div>
+                  <div className={FPCSS['font-20px'] + " " + FPCSS['font-color']}>30%</div>
+                  <div className={FPCSS['font-20px'] + " " + FPCSS['font-color']}>40%</div>
+                  <div className={FPCSS['font-20px'] + " " + FPCSS['font-color']}>50%</div>
+                  <div className={FPCSS['font-20px'] + " " + FPCSS['font-color']}>60%</div>
+                  <div className={FPCSS['font-20px'] + " " + FPCSS['font-color']}>70%</div>
+                  <div className={FPCSS['font-20px'] + " " + FPCSS['font-color']}>80%</div>
+                  <div className={FPCSS['font-20px'] + " " + FPCSS['font-color']}>90%</div>
+                  <div className={FPCSS['font-20px'] + " " + FPCSS['font-color']}>100%</div>
                 </div>
 
               </div>
@@ -297,6 +408,186 @@ function SkillSection() {
         </div>
 
       </div>
+    </div>
+
+  )
+}
+
+function BlenderImage() {
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  useEffect(() => {
+    const startAnimation3 = (entries: any, observer: any) => {
+      entries.forEach((entry: any) => {
+        entry.target.classList.toggle(FPCSS.slideInRightAnimation, entry.isIntersecting);
+      });
+    };
+    const observer3: any = new IntersectionObserver(startAnimation3);
+    const options3 = { root: null, rootMargin: '0px', threshold: 1 };
+    const elements3 = document.querySelectorAll('.mySwiper');
+    elements3.forEach(el => {
+      observer3.observe(el, options3);
+    });
+  });
+
+
+  return (
+    <div id="section4" style={{ width: "100%", height: "fit-content", paddingTop: "1em" }}>
+      <div className={FPCSS.aboutMeTitleText + " " + FPCSS['font-30px'] + " " + FPCSS['font-bold'] + " " + FPCSS['font-color']}>
+        Art Gallary
+      </div>
+      <Swiper
+        spaceBetween={30}
+
+        navigation={true}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[EffectFade, Navigation, Pagination]}
+        className="mySwiper"
+      >
+        <SwiperSlide>
+          <img src="https://drive.google.com/uc?export=view&id=1lkXBbHEHOs8Qw8wh9sf6kcAw0ZdLaEOJ" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://drive.google.com/uc?export=view&id=11wrw_0mlbNK9OGdolXuEUAEYalwrd64Y" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://drive.google.com/uc?export=view&id=1U4tV9QJVmruNekSKgMti_wnEdml3Sreo" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://drive.google.com/uc?export=view&id=1y6k5Gaj6tqvfo8FJMpe5R-KOO_vndVhh" />
+        </SwiperSlide>
+        <SwiperSlide >
+          <img src="https://drive.google.com/uc?export=view&id=12QwHr66hvNOmBbYbjdvrg4NbavbbcAcf" />
+        </SwiperSlide>
+        <SwiperSlide >
+          <img src="https://drive.google.com/uc?export=view&id=1wAuWqiNu3Y6XP9fIo1Wk95VHec3Zz2ba" />
+        </SwiperSlide>
+        <SwiperSlide >
+          <img src="https://drive.google.com/uc?export=view&id=1XaPCNLpIDKXFCXt-qHFQ8HLFskDKkGYA" />
+        </SwiperSlide>
+        <SwiperSlide >
+          <img src="https://drive.google.com/uc?export=view&id=1r6jwVDbB7iLdNR9gmSTmxLQ4fHWSwWpS" />
+        </SwiperSlide>
+        <SwiperSlide >
+          <img src="https://drive.google.com/uc?export=view&id=1A5c6S4xowQBGa3m6kvOFJ5r8DTccsAh3" />
+        </SwiperSlide>
+        <SwiperSlide >
+          <img src="https://drive.google.com/uc?export=view&id=1CIwgO2zUG90TVo7pQ1mXjWQH0550VvqA" />
+        </SwiperSlide>
+      </Swiper>
+    </div>
+  )
+}
+function CubeImage() {
+  useEffect(() => {
+    const startAnimation3 = (entries: any, observer: any) => {
+      entries.forEach((entry: any) => {
+        entry.target.classList.toggle(FPCSS.slideInRightAnimation, entry.isIntersecting);
+      });
+    };
+    const observer3: any = new IntersectionObserver(startAnimation3);
+    const options3 = { root: null, rootMargin: '0px', threshold: 1 };
+    const elements3 = document.querySelectorAll('.mySwiper2');
+    elements3.forEach(el => {
+      observer3.observe(el, options3);
+    });
+  });
+
+  return (
+    <div style={{ width: "100%", height: "fit-content", display: "flex", alignItems: "center", justifyContent: "center",paddingTop:"2em",paddingBottom:"2em" }}>
+      <div style={{ width: "50%", height: "80%" }}>
+        <Swiper
+          effect={"cube"}
+          grabCursor={true}
+          cubeEffect={{
+            shadow: true,
+            slideShadows: true,
+            shadowOffset: 20,
+            shadowScale: 0.94,
+          }}
+          pagination={true}
+          modules={[EffectCube, Pagination]}
+          className="mySwiper2"
+        >
+
+          <SwiperSlide >
+            <img src="https://drive.google.com/uc?export=view&id=1JpQ6ttp_QjrKB4rpW5zvaXQwQorwY50R" />
+          </SwiperSlide>
+          <SwiperSlide >
+            <img src="https://drive.google.com/uc?export=view&id=1_OHjWPiicthLQa9xOYdGELnPFg3zsim8" />
+          </SwiperSlide>
+          <SwiperSlide >
+            <img src="https://drive.google.com/uc?export=view&id=1sQOaAWGvHw8A9n5oenDKeNbkxaJvrajw" />
+          </SwiperSlide>
+          <SwiperSlide >
+            <img src="https://drive.google.com/uc?export=view&id=1AMCrDbczXLaIP5JFEQloW8pUeGIBYOHG" />
+          </SwiperSlide>
+          <SwiperSlide >
+            <img src="https://drive.google.com/uc?export=view&id=1WdGCCUanhJTY3GNk90Kbsb5yjk8q77cj" />
+          </SwiperSlide>
+          <SwiperSlide >
+            <img src="https://drive.google.com/uc?export=view&id=1ld3TIjpanoaQsCRxlGy6wYMf8re_Gl2U" />
+          </SwiperSlide>
+          <SwiperSlide >
+            <img src="https://drive.google.com/uc?export=view&id=1ZPyOf8WuFL-6e3_c7i6TOhDHE-zeo7Gl" />
+          </SwiperSlide>
+          <SwiperSlide >
+            <img src="https://drive.google.com/uc?export=view&id=1c3-mRbijK_duLiK4g-jimUDcPNY5Tp9E" />
+          </SwiperSlide>
+          <SwiperSlide >
+            <img src="https://drive.google.com/uc?export=view&id=1ArSBU-NnnunC-js1szu2vEQMjDeRg9mX" />
+          </SwiperSlide>
+          <SwiperSlide >
+            <img src="https://drive.google.com/uc?export=view&id=1I1_9ZznrbGbqVIe7lUZmHvXUAIj8W0hZ" />
+          </SwiperSlide>
+          <SwiperSlide >
+            <img src="https://drive.google.com/uc?export=view&id=1mG4T-ZCoLTDPn4V4DehyPBVUHr-amowl" />
+          </SwiperSlide>
+        </Swiper>
+      </div>
+    </div>
+
+  )
+}
+
+function ContactMe() {
+  return (
+    <div id="section5" style={{ width: "100%", height: "40vw", display: "flex", justifyContent: "center" }}>
+      <div style={{ width: "80%" }}>
+        <div className={FPCSS.aboutMeTitleText + " " + FPCSS['font-30px'] + " " + FPCSS['font-bold'] + " " + FPCSS['font-color']}>
+          Contact
+        </div>
+        <div style={{paddingTop:"1em"}}>
+          <div className={FPCSS['font-30px'] + " " + FPCSS['font-bold'] + " " + FPCSS['font-color']}>
+          🏠 Address
+            </div>
+          <div className={FPCSS['font-25px'] + " " + FPCSS['font-bold'] + " " + FPCSS['font-color']}>
+            Not provided because of privacy
+            </div>
+
+        </div>
+        <div style={{paddingTop:"1em"}}>
+          <div className={FPCSS['font-30px'] + " " + FPCSS['font-bold'] + " " + FPCSS['font-color']}>
+          📞 Phone
+             </div>
+          <div className={FPCSS['font-25px'] + " " + FPCSS['font-bold'] + " " + FPCSS['font-color']}>
+            +6017-379 4661
+            </div>
+
+
+        </div>
+        <div style={{paddingTop:"1em"}}>
+          <div className={FPCSS['font-30px'] + " " + FPCSS['font-bold'] + " " + FPCSS['font-color']}>
+          📧 Email
+            </div>
+          <div className={FPCSS['font-25px'] + " " + FPCSS['font-bold'] + " " + FPCSS['font-color']}><a className={FPCSS['font-25px']  + " " + FPCSS['font-color']} href="mailto:hoong.970912@hotmail.com">
+            hoong.970912@hotmail.com
+            </a></div>
+        </div>
+
+      </div>
+
     </div>
 
   )
@@ -318,7 +609,13 @@ function FrontPage() {
         <AboutMe />
         <LoadingBar />
         <SkillSection />
-        <Tictactoe/>
+        <LoadingBar />
+        <Tictactoe />
+        <LoadingBar />
+        <BlenderImage />
+        <CubeImage />
+        <LoadingBar />
+        <ContactMe />
       </div>
     </div>
 

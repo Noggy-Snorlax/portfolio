@@ -18,7 +18,19 @@ function Tictactoe() {
     const dispatch = useDispatch();
 
     // 1= X, 2=O
-
+    useEffect(() => {
+        const startAnimation3 = (entries: any, observer: any) => {
+          entries.forEach((entry: any) => {
+            entry.target.classList.toggle(FPCSS.slideInRightAnimation, entry.isIntersecting);
+          });
+        };
+        const observer3: any = new IntersectionObserver(startAnimation3);
+        const options3 = { root: null, rootMargin: '0px', threshold: 1 };
+        const elements3 = document.querySelectorAll('.' + FPCSS.tictactocContainer +',.titactoeReset');
+        elements3.forEach(el => {
+          observer3.observe(el, options3);
+        });
+      });
     function TicTacToeResult(){
         if(r1c1===1 && r1c2===1 && r1c3===1){
             return 1;
@@ -55,18 +67,25 @@ function Tictactoe() {
         }else if(r1c3===2 && r2c2===2 && r3c1===2){
             return 2;
         }else if(r1c1>0 && r1c2>0 && r1c3>0 
-            && r1c1>0 && r1c1>0 && r1c1>0
-            && r1c1>0 && r1c1>0 && r1c1>0){
+            && r2c1>0 && r2c2>0 && r2c3>0
+            && r3c1>0 && r3c2>0 && r3c3>0){
             return 3;
+        }else{
+            return 0;
         }
         
      
     }
 
     function CrossCircle(value: number, boxNumber: number) {
+        function ableToClick(){
+            if(value===0 && TicTacToeResult()===0){
+                dispatch(changeValueOfBox(boxNumber))
+            }
+        }
         return (
-
-            <div className={FPCSS.tictactocSmallSquare} onClick={() => dispatch(changeValueOfBox(boxNumber))}>
+            
+            <div className={FPCSS.tictactocSmallSquare} onClick={() => ableToClick()}>
                 <div className={FPCSS.tictactocCrossCircle}>
                     {value === 1 ? "X" : value === 2 ? "O" : ""}
 
@@ -77,8 +96,11 @@ function Tictactoe() {
     }
 
     return (
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "center",flexDirection:"column" }}>
-            <div>
+        <div id="section6" style={{ display: "flex", alignItems: "center", justifyContent: "center",flexDirection:"column",paddingTop:"1em",paddingBottom:"1em" }}>
+            <div  className={FPCSS.aboutMeTitleText + " " + FPCSS['font-30px'] + " " + FPCSS['font-bold'] + " " + FPCSS['font-color']}>
+                Tic Tac Toe
+            </div>
+            <div className={FPCSS.aboutMeTitleText + " " + FPCSS['font-30px'] + " " + FPCSS['font-bold'] + " " + FPCSS['font-color']}>
                {turn===1?"X":"O"} turn
             </div>
             <div className={FPCSS.tictactocContainer}>
@@ -100,10 +122,11 @@ function Tictactoe() {
                     </div>
                 </div>
             </div>
-            <div>
+            <div className={FPCSS.aboutMeTitleText + " " + FPCSS['font-30px'] + " " + FPCSS['font-bold'] + " " + FPCSS['font-color']}>
                {TicTacToeResult()===1?"X win":TicTacToeResult()===2?"O win":TicTacToeResult()===3?"Draw":""} 
-               <button onClick={()=>dispatch(resetTicTacToe())}>Reset</button>
+              
             </div>
+            <button className="titactoeReset" onClick={()=>dispatch(resetTicTacToe())}>Reset</button>
         </div>
 
     );
