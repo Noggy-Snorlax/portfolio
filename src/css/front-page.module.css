@@ -102,6 +102,21 @@
     transition: 2s;
   }
 
+  .animationSlide{
+   
+  }
+
+  .aboutMeExtraTitle{
+    transition: 2s;
+  }
+  .parent-isLight .aboutMeExtraTitle{
+    border-left:solid 2px black;
+ }
+
+ .parent-isDark .aboutMeExtraTitle{
+  border-left:solid 2px white;
+}
+  
 .parent-isDark .aboutMeImg1{
     background-color: #1f2e66;
     box-shadow: 0.68vw 0.68vw 1.04vw #0f1f2f, -0.68vw -0.68vw 1.04vw #326cb2
@@ -404,3 +419,90 @@
     justify-content: center;
   }
 /*tic tac toe*/
+
+
+
+.parent-isLight .navigationDrawerSelection{
+  display: flex;
+  align-items: center;
+  height: 1em;
+  width: 100%;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  transition: 0.0s;
+  background-color: transparent;
+  border-radius: 0.5vw;
+}
+
+.parent-isLight .navigationDrawerContent{
+  display: flex;
+  align-items: center;
+  position: relative;
+  transition: 0.5s;
+  left: 0%;
+  height: auto;
+}
+
+.parent-isLight .navigationDrawerSelection:hover .navigationDrawerContent{
+  left: 5%;
+}
+
+.parent-isLight .navigationDrawerSelection:hover{
+  background-color: #0000001a;
+}
+
+.parent-isLight .navigationDrawerArrowPath{
+  fill: #7000ff;
+  transition: 0.5s;
+}
+
+.parent-isLight .navigationDrawerSelection:hover .navigationDrawerArrowPath{
+  fill: #f08080;
+
+}
+
+.parent-isDark .navigationDrawerSelection{
+  display: flex;
+  align-items: center;
+  height: 1em;
+  width: 100%;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  transition: 0.0s;
+  background-color: transparent;
+  border-radius: 0.5vw;
+}
+
+.parent-isDark .navigationDrawerContent{
+  display: flex;
+  align-items: center;
+  position: relative;
+  transition: 0.5s;
+  left: 0%;
+  height: auto;
+}
+
+.parent-isDark .navigationDrawerSelection:hover .navigationDrawerContent{
+  left: 5%;
+}
+
+.parent-isDark .navigationDrawerSelection:hover{
+  background-color: #0000001a;
+}
+
+.parent-isDark .navigationDrawerArrowPath{
+  fill: #7000ff;
+  transition: 0.5s;
+}
+
+.parent-isDark .navigationDrawerSelection:hover .navigationDrawerArrowPath{
+  fill: #f08080;
+
+}
+
+
+
